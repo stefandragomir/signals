@@ -174,7 +174,7 @@ void EXT_API Sgn_SetValueBigEndian(uint8* buffer, uint64 size, uint64 value, uin
 
     for (idx = 0; idx < nrBytes; idx++)
     {
-        value = SGN_ADD_BYTE_TO_STREAM(value, signalBuffer[idx], nrBytes - idx - 1)
+        stream = SGN_ADD_BYTE_TO_STREAM(stream, signalBuffer[idx], nrBytes - idx - 1)
     }
 
     mask = (((uint64)1U << length) - (uint64)1U) << extraBits;
@@ -209,7 +209,7 @@ uint64 EXT_API Sgn_GetValueBigEndian(uint8* buffer, uint64 size, uint64 sb, uint
 
     for (idx = 0; idx < nrBytes; idx++)
     {
-        value = SGN_ADD_BYTE_TO_STREAM(value, signalBuffer[idx], nrBytes - idx - 1)
+        stream = SGN_ADD_BYTE_TO_STREAM(stream, signalBuffer[idx], nrBytes - idx - 1)
     }
 
     mask = (((uint64)1U << length) - (uint64)1U) << extraBits;
